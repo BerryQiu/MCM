@@ -1,0 +1,30 @@
+@article{Yang2015,
+  title={A Mathematical Model for Ebola Control},
+  author={Haoxin Yang and Jiahui Wang and Xingui Tang and others},
+  journal={Statistical and Application},
+  volume={4},
+  number={02},
+  pages={70},
+  year={2015},
+  publisher={Scientific Research Publishing}
+}
+@article{EarlyEpidemicDynamics,
+	author = {Fisman D. and Khoo E. and Tuite A.},
+	title = {Early epidemic dynamics of the West African 2014 Ebola outbreak: estimates derived with a simple two-parameter model},
+	journal = {PLOS Currents Outbreaks},
+	year={2014}	
+}
+@article{AssessingTheInternational,
+	author = {Gomes M.F. and Piontti A.P. and Rossi L. and Chao D. and Longini I. and Halloran M.E. and Vespignani A.},
+	title = { Assessing the international spreading risk associated with the 2014 West African Ebola outbreak},
+	journal = {PLOS Currents Outbreaks},
+	date = {Sep 2nd,2014},
+}
+@article{SARS,
+	title = {Analysis of SARS Outbreak and Cost Affecting Factors Based on Differential Model},
+	author = {P. Zhou},
+	journal = {Journal of Qinzhou University},
+	year = {2017},
+	volume = {32},
+	pages = {12-18}
+}
