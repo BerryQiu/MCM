@@ -1,0 +1,280 @@
+%%
+%% This is file `mcmthesis-demo.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% mcmthesis.dtx  (with options: `demo')
+%%
+%% -----------------------------------
+%%
+%% This is a generated file.
+%%
+%% Copyright (C)
+%%       2010 -- 2015 by Zhaoli Wang
+%%       2014 -- 2019 by Liam Huang
+%%       2019 -- present by latexstudio.net
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is Liam Huang.
+%%
+%%
+%% This is file `mcmthesis-demo.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% mcmthesis.dtx  (with options: `demo')
+%%
+%% -----------------------------------
+%%
+%% This is a generated file.
+%%
+%% Copyright (C)
+%%       2010 -- 2015 by Zhaoli Wang
+%%       2014 -- 2019 by Liam Huang
+%%       2019 -- present by latexstudio.net
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is Liam Huang.
+%%
+\documentclass{mcmthesis}
+\bibliographystyle{plain}
+\mcmsetup{CTeX = false,   % 使用 CTeX 套装时，设置为 true
+        tcn = 0000, problem = A,
+        sheet = true, titleinsheet = false, keywordsinsheet = true,
+        titlepage = false, abstract = true}
+\usepackage{newtxtext}%\usepackage{palatino}
+\usepackage{lipsum}
+\title{}
+%A New Model for Predicting the Number of Patients suffered from 2019-nCov
+\begin{document}
+\begin{abstract}
+
+
+      On December 31, 2019, several cases of pneumonia were found in Wuhan, Hubei Province, China. The virus does not match any other known viruses. This is a concern because we do not understand how new viruses affect humans.
+ 
+      We set up an epidemiological model SIR-$\mu\nu$ that takes into account the movement of population in Wuhan during the Spring Festival. Population mobility is mainly manifested in two parameters: in-migration rate and out-migration rate. This model is an improvement over the traditional SIR model. We use computer simulation to determine the parameters of the model. The results predicted by the model are in good agreement with the data reported by the WHO, indicating that our improved model is very effective.
+
+\begin{keywords}
+keyword1; keyword2
+\end{keywords}
+\end{abstract}
+\maketitle
+%% Generate the Table of Contents, if it's needed.
+ \tableofcontents
+ \newpage
+%%
+%% Generate the Memorandum, if it's needed.
+%% \memoto{\LaTeX{}studio}
+%% \memofrom{Liam Huang}
+%% \memosubject{Happy \TeX{}ing!}
+%% \memodate{\today}
+%% \logo{\LARGE I'm pretending to be a LOGO!}
+%% \begin{memo}[Memorandum]
+%%   \lipsum[1-3]
+%% \end{memo}
+%%
+\section{Introduction}
+\subsection{Problem Background}
+
+     Ebola virus disease (EVD), formerly known as Ebola haemorrhagic fever, is a rare but severe, often fatal illness in humans. Ebola virus was first discovered in 1976 near the Ebola River in the Democratic Republic of Congo (DRC). EVD most commonly affects people and nonhuman primates (such as monkeys, gorillas, and chimpanzees).The average EVD case fatality rate is around 50\%. Case fatality rates have varied from 25\% to 90\% in past outbreaks.
+
+	The 2014-2016 outbreak in West Africa was the largest Ebola outbreak since the virus was first discovered in 1976. The outbreak started in Guinea and then moved across land borders to Sierra Leone and Liberia. The 2018-2019 outbreak in eastern DRC is highly complex, with insecurity adversely affecting public health response activities.
+
+	Ebola virus has extremely high infectivity and risk. Samples collected from patients are an extreme biohazard risk; laboratory testing on non-inactivated samples should be conducted under maximum biological containment conditions. All biological specimens should be packaged using the triple packaging system when transported nationally and internationally.
+	
+	The virus is transmitted to people from wild animals and spreads in the human population through human-to-human transmission.The virus spreads to people initially through direct contact with the blood, body fluids and tissues of animals. Ebola virus then spreads to other people through direct contact with body fluids of a person who is sick with or has died from EVD. This can occur when a person touches these infected body fluids (or objects that are contaminated with them), and the virus gets in through broken skin or mucous membranes in the eyes, nose, or mouth. People can get the virus through sexual contact with someone who is sick with EVD, and also after recovery from EVD. The virus can persist in certain body fluids, like semen, after recovery from the illness.
+
+	Supportive care - rehydration with oral or intravenous fluids - and treatment of specific symptoms improves survival. There is as yet no proven treatment available for EVD. However, a range of potential treatments including blood products, immune therapies and drug therapies are currently being evaluated.
+
+\subsection{Previous Research}
+
+
+
+In the recent period, many models of Wuhan pneumonia have been released on the Internet, including back-propagation-based models, SIR models, SEIR models, and cellular automata models. However, most of these models did not consider the migration of the population where the virus broke out, Wuhan. Wuhan Mayor Zhou Xianwang said, "Because of the Spring Festival and epidemic factors, about 5 million people have left Wuhan." In fact, the total population of Wuhan is about 14 million\cite{TP}, including permanent and floating population. This is a considerable proportion. Therefore, we believe that the population flow in Wuhan will have a negligible impact on the condition of Hubei Province and the country.
+
+
+Fisman et al. used a two-parameter mathematical model to describe the epidemic growth and control\cite{EarlyEpidemicDynamics}.Gomes et al. researched into the risk of Ebola’s international spread along with its mobility data. His research reached a conclusion that the risk of Ebola’s international spread to outside Africa is relatively small compared to its expansion among the West African countries\cite{AssessingTheInternational}.Yang \textit{et al.} construct the SIR-L model for Ebola epidemics based on the classical infectious diseases SIR model and the Logistic model to simulate and predict the spread trends of the virus\cite{Yang2015}.Zhou Ping calculates the number of controlled regeneration based on SAQIJR, an infectious disease dynamics model, and uses sensitivity analysis to explore the factors affecting SARS outbreaks and intervention costs. It is concluded that timely and efficient quarantine and quarantine measures can effectively control the spread of SARS and approximate estimates of costs The method works. Quarantine measures are the most critical to control the SARS outbreak, followed by quarantine.\cite{SARS}
+
+\subsection{Our work}
+
+We were asked to build a realistic, sensible and useful model to optimize the elimination of new coronaviruses or at least their current strains. Our model should take into account not only the spread of the disease, the number of drugs required, the possible delivery systems possible, the place of delivery, the speed of vaccine or drug production, and other key factors we consider necessary.
+
+First, we searched a large number of papers discussing new coronaviruses to help us better understand this issue. We found that several papers use traditional epidemiological models to predict the spread of disease. for example, Yang et al. construct the SIR-L model for Ebola epidemics based on the classical infectious diseases SIR model and the Logistic model to simulate and predict the spread trends of the virus\cite{Yang2015}.
+
+
+\lipsum[0]
+%\begin{itemize}
+%\item the angular velocity of the bat,
+%\item the velocity of the ball, and
+%\item the position of impact along the bat.
+%\end{itemize}
+\lipsum[4]
+\emph{center of percussion} [Brody 1986], \lipsum[5]
+
+\begin{Theorem} \label{thm:latex}
+\LaTeX
+\end{Theorem}
+\begin{Lemma} \label{thm:tex}
+\TeX .
+\end{Lemma}
+\begin{proof}
+The proof of theorem.
+\end{proof}
+
+\subsection{Other Assumptions}
+\lipsum[6]
+\begin{itemize}
+\item
+\item
+\item
+\item
+\end{itemize}
+
+\lipsum[7]
+
+\section{Analysis of the Problem}
+\begin{figure}[h]
+\small
+\centering
+\includegraphics[width=8cm]{example-image-a}
+\caption{The name of figure} \label{fig:aa}
+\end{figure}
+
+\lipsum[8] \eqref{aa}
+\begin{equation}
+a^2 \label{aa}
+\end{equation}
+
+\[
+  \begin{pmatrix}{*{20}c}
+  {a_{11} } & {a_{12} } & {a_{13} }  \\
+  {a_{21} } & {a_{22} } & {a_{23} }  \\
+  {a_{31} } & {a_{32} } & {a_{33} }  \\
+  \end{pmatrix}
+  = \frac{{Opposite}}{{Hypotenuse}}\cos ^{ - 1} \theta \arcsin \theta
+\]
+\lipsum[9]
+
+\[
+  p_{j}=\begin{cases} 0,&\text{if $j$ is odd}\\
+  r!\,(-1)^{j/2},&\text{if $j$ is even}
+  \end{cases}
+\]
+
+\lipsum[10]
+
+\[
+  \arcsin \theta  =
+  \mathop{{\int\!\!\!\!\!\int\!\!\!\!\!\int}\mkern-31.2mu
+  \bigodot}\limits_\varphi
+  {\mathop {\lim }\limits_{x \to \infty } \frac{{n!}}{{r!\left( {n - r}
+  \right)!}}} \eqno (1)
+\]
+
+\section{Calculating and Simplifying the Model  }
+\lipsum[11]
+
+\section{The Model Results}
+\lipsum[6]
+
+\section{Validating the Model}
+\lipsum[9]
+
+\section{Conclusions}
+\lipsum[6]
+
+\section{A Summary}
+\lipsum[6]
+
+\section{Evaluate of the Mode}
+
+\section{Strengths and weaknesses}
+\lipsum[12]
+
+\subsection{Strengths}
+\begin{itemize}
+\item \textbf{Applies widely}\\
+This  system can be used for many types of airplanes, and it also
+solves the interference during  the procedure of the boarding
+airplane,as described above we can get to the  optimization
+boarding time.We also know that all the service is automate.
+\item \textbf{Improve the quality of the airport service}\\
+Balancing the cost of the cost and the benefit, it will bring in
+more convenient  for airport and passengers.It also saves many
+human resources for the airline. \item \textbf{}
+\end{itemize}
+
+\bibliography{references}
+%\begin{thebibliography}{99}
+%\bibitem{1} D.~E. KNUTH   The \TeX{}book  the American
+%Mathematical Society and Addison-Wesley
+%Publishing Company , 1984-1986.
+%\bibitem{2}Lamport, Leslie,  \LaTeX{}: `` A Document Preparation System '',
+%Addison-Wesley Publishing Company, 1986.
+%\bibitem{3}\url{http://www.latexstudio.net/}
+%\bibitem{4}\url{http://www.chinatex.org/}
+%\bibitem{5}Haoxing Yang,Jiahui Wang,Xingui Tang,A Mathematical Model for Ebola Control,Statistical and Application,2015,4,70-85
+%\end{thebibliography}
+
+
+\begin{appendices}
+
+\section{First appendix}
+
+In addition, your report must include a letter to the Chief Financial Officer (CFO) of the Goodgrant Foundation, Mr. Alpha Chiang, that describes the optimal investment strategy, your modeling approach and major results, and a brief discussion of your proposed concept of a return-on-investment (ROI). This letter should be no more than two pages in length.
+
+\begin{letter}{Dear, Mr. Alpha Chiang}
+
+\lipsum[1-2]
+
+\vspace{\parskip}
+
+Sincerely yours,
+
+Your friends
+
+\end{letter}
+Here are simulation programmes we used in our model as follow.\\
+
+\textbf{\textcolor[rgb]{0.98,0.00,0.00}{Input matlab source:}}
+\lstinputlisting[language=Matlab]{./code/mcmthesis-matlab1.m}
+
+\section{Second appendix}
+
+some more text \textcolor[rgb]{0.98,0.00,0.00}{\textbf{Input C++ source:}}
+\lstinputlisting[language=C++]{./code/mcmthesis-sudoku.cpp}
+
+\end{appendices}
+\end{document}
+%%
+%% This work consists of these files mcmthesis.dtx,
+%%                                   figures/ and
+%%                                   code/,
+%% and the derived files             mcmthesis.cls,
+%%                                   mcmthesis-demo.tex,
+%%                                   README,
+%%                                   LICENSE,
+%%                                   mcmthesis.pdf and
+%%                                   mcmthesis-demo.pdf.
+%%
+%% End of file `mcmthesis-demo.tex'.
