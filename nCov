@@ -112,7 +112,14 @@ keyword1; keyword2
 
 In the recent period, many models of Wuhan pneumonia have been released on the Internet, including back-propagation-based models, SIR models, SEIR models, and cellular automata models. However, most of these models did not consider the migration of the population where the virus broke out, Wuhan. Wuhan Mayor Zhou Xianwang said, "Because of the Spring Festival and epidemic factors, about 5 million people have left Wuhan." In fact, the total population of Wuhan is about 14 million\cite{TP}, including permanent and floating population. This is a considerable proportion. Therefore, we believe that the population flow in Wuhan will have a negligible impact on the condition of Hubei Province and the country.
 
-Fisman \textit{et al.} used a two-parameter mathematical model to describe the epidemic growth and control\cite{EarlyEpidemicDynamics}. Gomes \textit{et al.} researched into the risk of Ebola’s international spread along with its mobility data. His research reached a conclusion that the risk of Ebola’s international spread to outside Africa is relatively small compared to its expansion among the West African countries\cite{AssessingTheInternational}. Yang \textit{et al.} construct the SIR-L model for Ebola epidemics based on the classical infectious diseases SIR model and the Logistic model to simulate and predict the spread trends of the virus\cite{Yang2015}. Zhou Ping calculates the number of controlled regeneration based on SAQIJR, an infectious disease dynamics model, and uses sensitivity analysis to explore the factors affecting SARS outbreaks and intervention costs. It is concluded that timely and efficient quarantine and quarantine measures can effectively control the spread of SARS and approximate estimates of costs The method works. Quarantine measures are the most critical to control the SARS outbreak, followed by quarantine\cite{SARS}.
+
+Fisman et al. used a two-parameter mathematical model to describe the epidemic growth and control\cite{EarlyEpidemicDynamics}.Gomes et al. researched into the risk of Ebola’s international spread along with its mobility data. His research reached a conclusion that the risk of Ebola’s international spread to outside Africa is relatively small compared to its expansion among the West African countries\cite{AssessingTheInternational}.Yang \textit{et al.} construct the SIR-L model for Ebola epidemics based on the classical infectious diseases SIR model and the Logistic model to simulate and predict the spread trends of the virus\cite{Yang2015}.Zhou Ping calculates the number of controlled regeneration based on SAQIJR, an infectious disease dynamics model, and uses sensitivity analysis to explore the factors affecting SARS outbreaks and intervention costs. It is concluded that timely and efficient quarantine and quarantine measures can effectively control the spread of SARS and approximate estimates of costs The method works. Quarantine measures are the most critical to control the SARS outbreak, followed by quarantine.\cite{SARS}
+
+\subsection{Our work}
+
+We were asked to build a realistic, sensible and useful model to optimize the elimination of new coronaviruses or at least their current strains. Our model should take into account not only the spread of the disease, the number of drugs required, the possible delivery systems possible, the place of delivery, the speed of vaccine or drug production, and other key factors we consider necessary.
+
+First, we searched a large number of papers discussing new coronaviruses to help us better understand this issue. We found that several papers use traditional epidemiological models to predict the spread of disease. for example, Yang et al. construct the SIR-L model for Ebola epidemics based on the classical infectious diseases SIR model and the Logistic model to simulate and predict the spread trends of the virus\cite{Yang2015}.
 
 
 \lipsum[0]
@@ -121,88 +128,124 @@ Fisman \textit{et al.} used a two-parameter mathematical model to describe the e
 %\item the velocity of the ball, and
 %\item the position of impact along the bat.
 %\end{itemize}
-\lipsum[4]
+\lipsum[0]
 \emph{center of percussion} [Brody 1986], \lipsum[5]
 
-\begin{Theorem} \label{thm:latex}
-\LaTeX
-\end{Theorem}
-\begin{Lemma} \label{thm:tex}
-\TeX .
-\end{Lemma}
-\begin{proof}
-The proof of theorem.
-\end{proof}
+%\begin{Theorem} \label{thm:latex}
+%\LaTeX
+%\end{Theorem}
+%\begin{Lemma} \label{thm:tex}
+%\TeX .
+%\end{Lemma}
+%\begin{proof}
+%The proof of theorem.
+%\end{proof}
 
-\subsection{Other Assumptions}
-\lipsum[6]
+\section{General Assumptions}
+%\lipsum[6]
+
 \begin{itemize}
-\item
-\item
-\item
-\item
+\item Birth rate and mortality do not affect the total population of Wuhan.
+\item An individual who is exposed enters the incubation period and is infectious.
+\item The number of deaths due to illness does not affect the total number in Wuhan.
+\item The move-in index is constant until January 23, and then follows the index distribution.
+\item The moving out index changes according to the law of quadratic function before January 23, and then follows the index distribution.
 \end{itemize}
 
-\lipsum[7]
+%\lipsum[7]
 
-\section{Analysis of the Problem}
-\begin{figure}[h]
-\small
-\centering
-\includegraphics[width=8cm]{example-image-a}
-\caption{The name of figure} \label{fig:aa}
-\end{figure}
+\section{Notations and Symbol Description}
+\subsection{Notations}
+\textbf{Susceptible: }Individual is able to become infected.
 
-\lipsum[8] \eqref{aa}
-\begin{equation}
-a^2 \label{aa}
-\end{equation}
+\textbf{Exposed:} Individual has been infected with a pathogen, but due to the pathogen’s incubation period, is not yet infectious.
 
-\[
-  \begin{pmatrix}{*{20}c}
-  {a_{11} } & {a_{12} } & {a_{13} }  \\
-  {a_{21} } & {a_{22} } & {a_{23} }  \\
-  {a_{31} } & {a_{32} } & {a_{33} }  \\
-  \end{pmatrix}
-  = \frac{{Opposite}}{{Hypotenuse}}\cos ^{ - 1} \theta \arcsin \theta
-\]
-\lipsum[9]
+\textbf{Infectious:} Individual is infected with a pathogen and is capable of transmitting the pathogen to others.
 
-\[
-  p_{j}=\begin{cases} 0,&\text{if $j$ is odd}\\
-  r!\,(-1)^{j/2},&\text{if $j$ is even}
-  \end{cases}
-\]
+\textbf{Recovered:} Individual is either no longer infectious or “removed” from the population.
 
-\lipsum[10]
+\subsection{Symbol Description}
+\begin{table}[h]
+	\centering
+	\caption{Symbols in the model}
+%	\label{tab:my-table}
+	\begin{tabular}{|c|l|}
+		\hline
+		\textbf{Symbol} & \textbf{Description}                                        \\ \hline
+		S(t)            & Number of suspected individuals at time t                   \\ \hline
+		I(t)            & Number of infectious individuals outside hospital at time t \\ \hline
+		R(t)            & Number of removed individuals at time t                     \\ \hline
+		N(t)            & Size of total population in Wuhan                           \\ \hline
+		$\mu$           & Immigration index                                           \\ \hline
+		$\nu$           & Emigration Index                                            \\ \hline
+		$\xi$ &
+		\begin{tabular}[c]{@{}l@{}}Re-infectious rate, represents the probability of recovered individuals \\ return to the susceptible statue due to loss of immunity\end{tabular} \\ \hline
+		$\beta$ &
+		\begin{tabular}[c]{@{}l@{}}Infectious rate, represents the probability of transmitting disease \\ between a susceptible and an infectious individual\end{tabular} \\ \hline
+		$\gamma$        & Recovery rate, determined by the average duration            \\ \hline
+		$\alpha$        & Death index                                                 \\ \hline
+		k               & Cure Index                                                  \\ \hline
+		L               & Cumulative cases                                            \\ \hline
+	\end{tabular}
+\end{table}                                                                                                           
 
-\[
-  \arcsin \theta  =
-  \mathop{{\int\!\!\!\!\!\int\!\!\!\!\!\int}\mkern-31.2mu
-  \bigodot}\limits_\varphi
-  {\mathop {\lim }\limits_{x \to \infty } \frac{{n!}}{{r!\left( {n - r}
-  \right)!}}} \eqno (1)
-\]
+%\begin{figure}[h]
+%\small
+%\centering
+%\includegraphics[width=8cm]{example-image-a}
+%\caption{The name of figure} \label{fig:aa}
+%\end{figure}
+%
+%\lipsum[8] \eqref{aa}
+%\begin{equation}
+%%a^2 \label{aa}
+%\end{equation}
+%
+%\[
+%  \begin{pmatrix}{*{20}c}
+%  {a_{11} } & {a_{12} } & {a_{13} }  \\
+%  {a_{21} } & {a_{22} } & {a_{23} }  \\
+%  {a_{31} } & {a_{32} } & {a_{33} }  \\
+%  \end{pmatrix}
+%  = \frac{{Opposite}}{{Hypotenuse}}\cos ^{ - 1} \theta \arcsin \theta
+%\]
+%\lipsum[9]
+%
+%\[
+%  p_{j}=\begin{cases} 0,&\text{if $j$ is odd}\\
+%  r!\,(-1)^{j/2},&\text{if $j$ is even}
+%  \end{cases}
+%\]
+%
+%\lipsum[10]
+%
+%\[
+%  \arcsin \theta  =
+%  \mathop{{\int\!\!\!\!\!\int\!\!\!\!\!\int}\mkern-31.2mu
+%  \bigodot}\limits_\varphi
+%  {\mathop {\lim }\limits_{x \to \infty } \frac{{n!}}{{r!\left( {n - r}
+%  \right)!}}} \eqno (1)
+%\]
 
-\section{Calculating and Simplifying the Model  }
-\lipsum[11]
-
-\section{The Model Results}
-\lipsum[6]
-
-\section{Validating the Model}
-\lipsum[9]
-
-\section{Conclusions}
-\lipsum[6]
-
-\section{A Summary}
-\lipsum[6]
-
-\section{Evaluate of the Mode}
-
-\section{Strengths and weaknesses}
-\lipsum[12]
+%\section{Calculating and Simplifying the Model  }
+%\lipsum[11]
+%
+%\section{The Model Results}
+%\lipsum[6]
+%
+%\section{Validating the Model}
+%\lipsum[9]
+%
+%\section{Conclusions}
+%\lipsum[6]
+%
+%\section{A Summary}
+%\lipsum[6]
+%
+%\section{Evaluate of the Mode}
+%
+%\section{Strengths and weaknesses}
+%\lipsum[12]
 
 \subsection{Strengths}
 \begin{itemize}
