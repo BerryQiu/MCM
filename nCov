@@ -64,6 +64,9 @@
         titlepage = false, abstract = true}
 \usepackage{newtxtext}%\usepackage{palatino}
 \usepackage{lipsum}
+\usepackage{float}
+\usepackage{indentfirst}
+%\setlength{\parindent}{1em}
 \title{}
 %A New Model for Predicting the Number of Patients suffered from 2019-nCov
 \begin{document}
@@ -110,7 +113,7 @@ keyword1; keyword2
 
 
 
-In the recent period, many models of Wuhan pneumonia have been released on the Internet, including back-propagation-based models, SIR models, SEIR models, and cellular automata models. However, most of these models did not consider the migration of the population where the virus broke out, Wuhan. Wuhan Mayor Zhou Xianwang said, "Because of the Spring Festival and epidemic factors, about 5 million people have left Wuhan." In fact, the total population of Wuhan is about 14 million\cite{TP}, including permanent and floating population. This is a considerable proportion. Therefore, we believe that the population flow in Wuhan will have a negligible impact on the condition of Hubei Province and the country.
+In the recent period, many models of Wuhan pneumonia have been released on the Internet, including back-propagation-based models, SIR models, SEIR models, and cellular automaton models. However, most of these models did not consider the migration of the population where the virus broke out, Wuhan. Wuhan Mayor Zhou Xianwang said, "Because of the Spring Festival and epidemic factors, about 5 million people have left Wuhan." In fact, the total population of Wuhan is about 14 million\cite{TP}, including permanent and floating population. This is a considerable proportion. Therefore, we believe that the population flow in Wuhan will have a negligible impact on the condition of Hubei Province and the country.
 
 
 Fisman et al. used a two-parameter mathematical model to describe the epidemic growth and control\cite{EarlyEpidemicDynamics}.Gomes et al. researched into the risk of Ebola’s international spread along with its mobility data. His research reached a conclusion that the risk of Ebola’s international spread to outside Africa is relatively small compared to its expansion among the West African countries\cite{AssessingTheInternational}.Yang \textit{et al.} construct the SIR-L model for Ebola epidemics based on the classical infectious diseases SIR model and the Logistic model to simulate and predict the spread trends of the virus\cite{Yang2015}.Zhou Ping calculates the number of controlled regeneration based on SAQIJR, an infectious disease dynamics model, and uses sensitivity analysis to explore the factors affecting SARS outbreaks and intervention costs. It is concluded that timely and efficient quarantine and quarantine measures can effectively control the spread of SARS and approximate estimates of costs The method works. Quarantine measures are the most critical to control the SARS outbreak, followed by quarantine.\cite{SARS}
@@ -172,10 +175,10 @@ First, we searched a large number of papers discussing new coronaviruses to help
 	\begin{tabular}{|c|l|}
 		\hline
 		\textbf{Symbol} & \textbf{Description}                                        \\ \hline
-		S(t)            & Number of suspected individuals at time t                   \\ \hline
-		I(t)            & Number of infectious individuals outside hospital at time t \\ \hline
-		R(t)            & Number of removed individuals at time t                     \\ \hline
-		N(t)            & Size of total population in Wuhan                           \\ \hline
+		$S(t)$            & Number of suspected individuals at time $t$                   \\ \hline
+		$I(t)$            & Number of infectious individuals outside hospital at time $t$ \\ \hline
+		$R(t)$            & Number of removed individuals at time $t$                     \\ \hline
+		$N(t)$            & Size of total population in Wuhan                           \\ \hline
 		$\mu$           & Immigration index                                           \\ \hline
 		$\nu$           & Emigration Index                                            \\ \hline
 		$\xi$ &
@@ -184,8 +187,8 @@ First, we searched a large number of papers discussing new coronaviruses to help
 		\begin{tabular}[c]{@{}l@{}}Infectious rate, represents the probability of transmitting disease \\ between a susceptible and an infectious individual\end{tabular} \\ \hline
 		$\gamma$        & Recovery rate, determined by the average duration            \\ \hline
 		$\alpha$        & Death index                                                 \\ \hline
-		k               & Cure Index                                                  \\ \hline
-		L               & Cumulative cases                                            \\ \hline
+		$k$               & Cure Index                                                  \\ \hline
+		$L$               & Cumulative cases                                            \\ \hline
 	\end{tabular}
 \end{table}                                                                                                           
 
@@ -246,20 +249,82 @@ First, we searched a large number of papers discussing new coronaviruses to help
 %
 %\section{Strengths and weaknesses}
 %\lipsum[12]
+\section{Spread of 2019-nCov}
+\subsection{Traditional Epidemic Model}
+\subsubsection{The SIR-L Model}
 
-\subsection{Strengths}
-\begin{itemize}
-\item \textbf{Applies widely}\\
+\indent The structure of classical SIR model is shown in Fig. \ref{fig:SIRmodel}:
+
+\begin{figure}[H]
+\centering
+\includegraphics{SIR}
+\caption{SIR model}
+\label{fig:SIRmodel}
+\end{figure}
+
+The transmission of 2019-nCov follows SIR (susceptible-infectious- recovered) dynamics and can be described by the following set of ordinary differential equations\cite{Yang2015}:
+\[
+\begin{cases}
+    \frac{\mathrm{d} s}{\mathrm{d} t}=-\lambda si \\
+    \frac{\mathrm{d} i}{\mathrm{d} t}=\lambda si - i\mu \\
+    \frac{\mathrm{d} r}{\mathrm{d} t}=i\mu \\
+    \frac{\mathrm{d} L}{\mathrm{d} t}=\lambda L - kL^2\\
+    L(0)=i_0
+\end{cases}
+\]
+\subsubsection{Outbreak Data}
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm,height=8cm]{hbljbl}
+\caption{Cumulative number of cases in Hubei Province}
+\end{figure}
+\subsubsection{Results of the SIR Model}
+
+\subsection{Improved Model}
+\subsubsection{The SIR-$\mu\nu$ Model}
+The structure of SIR-$\mu\nu$ Model is shown in Fig. \ref{fig:improvedmodel}:
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{improved_model}
+	\caption{The Structure of SIR-$\mu\nu$ Model}
+	\label{fig:improvedmodel}
+\end{figure}
+\[
+\begin{cases}  
+	\frac{\mathrm{d} S}{\mathrm{d} t}=\mu N-\frac{\beta SI}{N}-\nu S  \\
+	\frac{\mathrm{d} I}{\mathrm{d} t}=\frac{\beta SI}{N}-\gamma I-\nu I \\
+	\frac{\mathrm{d} R}{\mathrm{d} t}=\gamma I-\nu R \\
+	\frac{\mathrm{d} L}{\mathrm{d} t}=\frac{\beta}{N}L-kL^{2} \\
+	\frac{\mathrm{d} N}{\mathrm{d} t}= \mu N-\nu N  \\
+	\mu = \begin{cases}   
+	4.173, 1 \leq t \leq12 \\
+	1.367 e^{-0.89(t-13)} + 0.3701, t\geq 13
+	\end{cases} \\
+	\nu = \begin{cases}
+	0.1139t^{2}-1.056t+8.146,1 \leq t \leq 12 \\
+	10.9 e^{-1.115(t-13)}+0.2518,t\geq 13
+	\end{cases}
+\end{cases}
+\]
+\subsubsection{Choosing Parameters}
+
+\subsubsection{Results of the SIR-$\mu\nu$ Model}
+\section{Sensitivity Analysis}
+
+\subsection{Impact of Transmission Rate $\beta$}
 This  system can be used for many types of airplanes, and it also
 solves the interference during  the procedure of the boarding
 airplane,as described above we can get to the  optimization
 boarding time.We also know that all the service is automate.
-\item \textbf{Improve the quality of the airport service}\\
+\subsection{Impact of the Incubation Period 1/$\sigma$}
 Balancing the cost of the cost and the benefit, it will bring in
 more convenient  for airport and passengers.It also saves many
-human resources for the airline. \item \textbf{}
-\end{itemize}
 
+
+\section{Strengths and Weaknesses}
+\subsection{Strengths}
+\subsection{Weaknesses}
+\subsection{Future Work}
 \bibliography{references}
 %\begin{thebibliography}{99}
 %\bibitem{1} D.~E. KNUTH   The \TeX{}book  the American
@@ -272,7 +337,7 @@ human resources for the airline. \item \textbf{}
 %\bibitem{5}Haoxing Yang,Jiahui Wang,Xingui Tang,A Mathematical Model for Ebola Control,Statistical and Application,2015,4,70-85
 %\end{thebibliography}
 
-
+\newpage
 \begin{appendices}
 
 \section{First appendix}
@@ -293,7 +358,7 @@ Your friends
 Here are simulation programmes we used in our model as follow.\\
 
 \textbf{\textcolor[rgb]{0.98,0.00,0.00}{Input matlab source:}}
-\lstinputlisting[language=Matlab]{./code/mcmthesis-matlab1.m}
+\lstinputlisting[language=Matlab]{Wuhan_popu_2.m}
 
 \section{Second appendix}
 
